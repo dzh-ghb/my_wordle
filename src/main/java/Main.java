@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String secretWord = getRandomSecretWord().toLowerCase();
+        String secretWord = getRandomSecretWord();
         int maxAttempts = 5;
 
         System.out.println("Добро пожаловать в MyWordle!\nУ Вас будет " + maxAttempts +
@@ -50,6 +50,6 @@ public class Main {
                 "Учеба", "Флора", "Хомяк", "Цапля",
                 "Чешки", "Шатер", "Щепка", "Эгида",
                 "Юнона", "Ягода");
-        return dictionary.get(new Random().nextInt(dictionary.size()));
+        return dictionary.get(new Random().nextInt(dictionary.size())).toLowerCase();
     }
 }
