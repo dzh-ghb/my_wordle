@@ -21,13 +21,13 @@ public class MainGUI extends Application { //наследование от кл�
 
         VBox root = new VBox(10); //создание родителя с указанием отступов
         root.setStyle(textFontSize);
-        GridPane attemptsInfo = new GridPane(); //элемент, позволяющий динамически добавлять элементы
 
         Label greetingsLabel = new Label(game.getGreetings()); //создание лейбла
-        TextField userInput = new TextField();
-        Label resultLabel = new Label();
+        TextField userInput = new TextField(); //поле ввода значений
+        GridPane attemptsInfo = new GridPane(); //элемент, позволяющий динамически добавлять элементы
+        Label resultLabel = new Label(); //лейбл для вывода результата
 
-        Button submitButton = new Button("Проверить введенное значение");
+        Button submitButton = new Button("Проверить введенное слово");
 
         submitButton.setOnAction(event -> {
             String userInputText = userInput.getText(); //получение пользовательского ввода
@@ -38,10 +38,10 @@ public class MainGUI extends Application { //наследование от кл�
                 submitButton.setDisable(true); //отключение возможности нажатия на кнопку
                 return;
             }
-            Label attemptLabel = new Label();
+            Label attemptLabel = new Label(); //создание лейбла на каждой итерации для записи введенного слова
             attemptLabel.setText("Попытка №" + attemptCount + ": " + game.getFeedback(userInputText));
-            attemptsInfo.add(attemptLabel, 0, attemptCount);
-            userInput.clear();
+            attemptsInfo.add(attemptLabel, 0, attemptCount); //добавление лейбла в динамический список элементов GridPane
+            userInput.clear(); //очистка поля ввода после неверной попытки
             if (attemptCount == maxAttempts) {
                 resultLabel.setText(game.getFailMessage());
                 userInput.setDisable(true);

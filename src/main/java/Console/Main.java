@@ -18,7 +18,7 @@ public class Main {
                 System.out.println(game.getCongratulations());
                 return; //завершение программы при отгадывании слова
             } else {
-                System.out.println(game.getFeedback(userInput));
+                System.out.println("Подсказка: " + game.getFeedback(userInput));
             }
         }
         System.out.println(game.getFailMessage());
